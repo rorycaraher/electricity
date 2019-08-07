@@ -1,16 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import Input from "../presentational/Input.jsx";
 
-class FormContainer extends Component {
+function Greeting(props) {
+    return (
+        <p>{props.item}</p>
+    ) 
+}
+
+function Toggle(props) {
+    return (
+        <p onClick={props.onClick}>{props.onoff}</p>
+    ) 
+}
+class FormContainer extends React.Component {
     constructor() {
         super();
-
         this.state = {
-            seo_title: ""
+            light_status: 0
         };
-        
-        this.handleChange = this.handleChange.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
+    }
+
+    buttonClick() {
+        this.props.onoff = "2"
     }
 
     handleChange(event) {
@@ -19,22 +32,13 @@ class FormContainer extends Component {
 
 
     render() {
-        const { seo_title } = this.state;
         return (
-            <form id="article-form">
-                <Input
-                    text="SEO title! "
-                    label="seo_title"
-                    type="text"
-                    id="seo_title"
-                    value={seo_title}
-                    handleChange={this.handleChange}
-                />
-            </form>
+            <div>
+                <Button onoff="0" onClick={()=>this.buttonClick()}/>
+            </div>
         )
     }
 }
 export default FormContainer;
 
-const wrapper = document.getElementById("create-article-form");
-wrapper ? ReactDOM.render(<FormContainer />, wrapper) : false;
+ReactDOM.render(<FormContainer />,document.getElementById("create-article-form"));
