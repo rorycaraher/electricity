@@ -6,8 +6,8 @@ class App extends React.Component {
     render() {
       return (
         <div>
-          <Toggle />
-          <Toggle />
+          <Toggle light_num="7"/>
+          <Toggle light_num="8"/>
         </div>
       );
     }
