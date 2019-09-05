@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 class Toggle extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {isToggleOn: true};
+      this.state = {isToggleOn: false};
   
       // This binding is necessary to make `this` work in the callback
       this.handleClick = this.handleClick.bind(this);
@@ -26,6 +27,10 @@ class Toggle extends React.Component {
         </button>
       );
     }
-  }
+}
 
-  export default Toggle;
+Toggle.propTypes = {
+  id: PropTypes.string
+}
+
+export default Toggle;
