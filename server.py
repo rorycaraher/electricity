@@ -2,6 +2,7 @@
 
 import os
 from flask import Flask, render_template, request, url_for
+# uncomment GPIO code when deploying to RPi
 # import RPi.GPIO as GPIO
 app = Flask(__name__, template_folder='dist', static_folder="dist", static_url_path="")
 
